@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://images.unsplash.com/photo-1471115853179-bb1d604434e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxOTA1NDN8MHwxfGFsbHwxfHx8fHx8fHx8fHwxNjIyODc0NjQz&ixlib=rb-1.2.1&q=80&w=4000');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        form {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        label, input, button {
+            display: block;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        input, button {
+            padding: 10px;
+            width: 80%;
+            margin: 0 auto;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .weather-info {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            document.getElementById("city").value = "";
+        };
+    </script>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <form method="post" action="/">
+        <label for="city">Enter City:</label>
+        <input type="text" id="city" name="city" required>
+        <button type="submit">Get Details</button>
+    </form>
+    <div class="weather-info">
+        <h1>Weather Information</h1>
+        <p>City: {{ data['city'] }}</p>
+        <p>Country Code: {{ data['country_code'] }}</p>
+        <p>Temperature: {{ data['temp_cell'] }}</p>
+        <p>Humidity: {{ data['humidity'] }}%</p>
+    </div>
+</body>
+</html>
